@@ -4,13 +4,13 @@ public class CalendrierAnnuel{
 	
 	private Mois[] calendrier = new Mois[12];
 	
-	public boolean estLibre(int mois, int jour) {
-		return calendrier[mois-1].estLibre(jour-1);
+	public boolean estLibre( int jour, int mois) {
+		return !(calendrier[mois - 1].estLibre(jour - 1));
 	}
 	
-	public boolean reserver(int mois, int jour) {
+	public boolean reserver(int jour, int mois) {
 		try {
-				calendrier[mois-1].reserver(jour-1);
+				calendrier[mois - 1].reserver(jour - 1);
 			} catch (DejaReserveException e) {
 				e.printStackTrace();
 				return false;
